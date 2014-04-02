@@ -21,4 +21,3 @@ from .managers import (
     IFooter,
     IExtraInfo,
     )
-

@@ -10,6 +10,10 @@ history = open(join('docs', 'HISTORY.txt')).read()
 
 install_requires = [
     'zope.interface',
+    'zope.security',
+    'dolmen.template',
+    'dolmen.menu',
+    'grokcore.component',
     ]
 
 tests_require = [
