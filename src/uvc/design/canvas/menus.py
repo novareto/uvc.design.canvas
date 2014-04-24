@@ -70,11 +70,30 @@ def get_template(filename):
     return TALTemplate(path.join(path.dirname(__file__), 'templates', filename))
 
 
+<<<<<<< HEAD
 class ContextualActionsMenu(Menu):
     name('contextualactionsmenu')
     title(u"Actions")
     implements(IContextualActionsMenu)
     
+=======
+@implementer(IGlobalMenu)
+class GlobalMenu(Menu):
+    name('globalmenu')
+    title(u"GlobalMenu")
+
+    template = get_template('globalmenu.cpt')
+    menu_class = u'nav nav-pills pull-right'
+    css = "global_menu"
+
+
+@implementer(IContextualActionsMenu)
+class ContextualActionsMenu(Menu):
+    name('contextualactionsmenu')
+    title(u"Actions")
+
+    template = get_template('objectmenu.cpt')
+>>>>>>> d58dcc75396895f25194f14e032a1304c8b847c0
     menu_class = u'nav nav-pills pull-right'
     css = "actions_menu"
 
@@ -93,24 +112,59 @@ class PersonalMenu(Menu):
     name('personal')
     title('Personal menu')
     context(Interface)
+<<<<<<< HEAD
     implements(IPersonalMenu)
     
+=======
+    template = get_template('personal.cpt')
+
+>>>>>>> d58dcc75396895f25194f14e032a1304c8b847c0
     menu_class = u'nav nav-tabs'
     css = "navigation"
+
+
+@implementer(IPersonalPreferences)
+class PersonalPreferences(Menu):
+    name('personalpreferences')
+    title('Personal Preferences')
+
+    template = get_template('personal.cpt')
+    menu_class = "nav navbar-nav pull-right"
+
+
+@implementer(IDocumentActions)
+class DocumentActionsMenu(Menu):
+    name('documentactions')
+    title('Document Actions')
+    menu_class = "pull-right"
+    template = get_template('personal.cpt')
+
+
+@implementer(IFooterMenu)
+class FooterMenu(Menu):
+    name('footermenu')
+    title('Footer Menu')
+    template = get_template('personal.cpt')
+    menu_class = "nav nav-tabs pull-right"
 
 
 class UserMenu(Menu):
     name('useractions')
     title('User actions')
     context(Interface)
+<<<<<<< HEAD
     implements(IUserMenu)
     
+=======
+    template = get_template('useractions.cpt')
+
+>>>>>>> d58dcc75396895f25194f14e032a1304c8b847c0
     menu_class = u'nav nav-tabs'
     css = "navigation"
-    
+
     def standalone(self):
         return self.request.application_url + "/meine_daten"
-    
+
     @property
     def username(self):
         policy = getInteraction()
@@ -124,8 +178,13 @@ class NavigationMenu(Menu):
     name('navigation')
     title('Navigation')
     context(Interface)
+<<<<<<< HEAD
     implements(INavigationMenu)
     
+=======
+    template = get_template('navigationmenutemplate.cpt')
+
+>>>>>>> d58dcc75396895f25194f14e032a1304c8b847c0
     menu_class = u'nav nav-tabs'
     css = "navigation"
 
