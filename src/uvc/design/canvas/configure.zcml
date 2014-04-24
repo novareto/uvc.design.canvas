@@ -3,7 +3,9 @@
     xmlns:grok="http://namespaces.zope.org/grok">
 
   <include package="zope.security" file="meta.zcml" />
+  <include package="grokcore.component" file="meta.zcml" />
   <include package="dolmen.menu" />
+
   <grok:grok package="." />
 
 </configure>
