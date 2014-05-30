@@ -1,12 +1,7 @@
 # -*- coding: utf-8 -*-
 
-try:
-    import uvclight as grok
-except ImportError:
-    import grok
-
-from .managers import IAboveContent, IPageTop, IHeaders
-from .menus import IPersonalMenu, IContextualActionsMenu
+import uvclight as grok
+from .managers import IAboveContent, IPageTop
 from .menus import NavigationMenu, PersonalMenu, AddMenu, ContextualActionsMenu
 from zope.interface import Interface
  
