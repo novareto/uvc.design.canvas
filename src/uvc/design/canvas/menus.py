@@ -75,7 +75,8 @@ class ContextualActionsMenu(Menu):
     title(u"Actions")
     context(Interface)
     implements(IContextualActionsMenu)
-    
+    menu_class = u'nav nav-pills pull-right'
+
 
 class GlobalMenu(Menu):
     name('globalmenu')
@@ -123,7 +124,7 @@ class DocumentActionsMenu(Menu):
     title('Document Actions')
     context(Interface)
     implements(IDocumentActions)
-
+    
 
 class FooterMenu(Menu):
     name('footermenu')
