@@ -1,10 +1,7 @@
 # -*- coding: utf-8 -*-
 
-try:
-    from cromlech.browser import IView as Interface
-except ImportError:
-    from zope.interface import Interface
+from cromlech.browser import IView
 
 
-class IHomepage(Interface):
+class IHomepage(IView):
     pass

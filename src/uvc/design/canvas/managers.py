@@ -1,46 +1,43 @@
 # -*- coding: utf-8 -*-
 
-try:
-    from cromlech.browser import IViewSlot as Interface
-except ImportError:
-    from zope.interface import Interface
+from cromlech.browser import IViewSlot
 
 
-class IPageTop(Interface):
+class IPageTop(IViewSlot):
     """Marker For the area that sits at the top of the page.
     """
 
 
-class ITabs(Interface):
+class ITabs(IViewSlot):
     """Marker for the action tabs.
     """
 
 
-class IAboveContent(Interface):
+class IAboveContent(IViewSlot):
     """Marker For the area that sits above the page body.
     """
 
 
-class IBelowContent(Interface):
+class IBelowContent(IViewSlot):
     """Marker For the area that sits under the page body.
     """
 
 
-class IHeaders(Interface):
+class IHeaders(IViewSlot):
     """Marker For Headers
     """
 
 
-class IToolbar(Interface):
+class IToolbar(IViewSlot):
     """Marker for Toolbar
     """
 
 
-class IFooter(Interface):
+class IFooter(IViewSlot):
     """
     """
 
 
-class IExtraInfo(Interface):
+class IExtraInfo(IViewSlot):
     """
     """
