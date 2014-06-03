@@ -10,6 +10,7 @@ history = open(join('docs', 'HISTORY.txt')).read()
 
 
 install_requires = [
+    'setuptools',
     'cromlech.browser',
     'dolmen.menu',
     'dolmen.template',
