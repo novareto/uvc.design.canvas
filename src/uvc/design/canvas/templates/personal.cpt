@@ -1,8 +1,4 @@
-<div class="col-md-4 pull-right">
-  <div class="col-sm-9 col-sm-offset-2 pull-right">
-    <img class="img-responsive logo"
-	 src="/fanstatic/uvc.themes.dguv/logo.png" />
-  </div>
+<div class="pull-right">
   <nav class="navbar navbar-default" role="navigation" id="personalmenu">
     <div id="navbar-login" class="navbar pull-right">
       <ul class="nav navbar-nav">
