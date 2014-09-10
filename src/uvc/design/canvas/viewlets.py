@@ -4,12 +4,14 @@ import uvclight as grok
 from .managers import IAboveContent, IPageTop
 from .menus import NavigationMenu, PersonalMenu, AddMenu, ContextualActionsMenu
 from zope.interface import Interface
- 
+from uvc.content.interfaces import IContent
+
 
 class ObjectActionMenuViewlet(grok.Viewlet):
     grok.name('contextualactions')
     grok.title('Actions')
     grok.viewletmanager(IAboveContent)
+    grok.context(IContent)
     grok.order(119)
 
     def render(self):
@@ -33,7 +35,7 @@ class PersonalMenuViewlet(grok.Viewlet):
     grok.context(Interface)
     grok.viewletmanager(IPageTop)
     grok.order(100)
-    
+
     def render(self):
         menu = PersonalMenu(self.context, self.request, self.view)
         menu.update()
@@ -57,5 +59,5 @@ class GlobalMenuViewlet(grok.Viewlet):
     grok.context(Interface)
     grok.viewletmanager(IPageTop)
     grok.order(11)
-    
+
     template = None
