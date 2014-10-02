@@ -1,18 +1,19 @@
 # -*- coding: utf-8 -*-
 
-import uvclight as grok
 from .managers import IAboveContent, IPageTop
 from .menus import NavigationMenu, PersonalMenu, AddMenu, ContextualActionsMenu
-from zope.interface import Interface
+from grokcore.component import baseclass, name, title, context, order
+from dolmen.viewlet import Viewlet, slot as viewletmanager
 from uvc.content.interfaces import IContent
+from zope.interface import Interface
 
 
-class ObjectActionMenuViewlet(grok.Viewlet):
-    grok.name('contextualactions')
-    grok.title('Actions')
-    grok.viewletmanager(IAboveContent)
-    grok.context(IContent)
-    grok.order(119)
+class ObjectActionMenuViewlet(Viewlet):
+    name('contextualactions')
+    title('Actions')
+    viewletmanager(IAboveContent)
+    context(IContent)
+    order(119)
 
     def render(self):
         menu = ContextualActionsMenu(self.context, self.request, self.view)
@@ -20,10 +21,10 @@ class ObjectActionMenuViewlet(grok.Viewlet):
         return menu.render()
 
 
-class AddMenuViewlet(grok.Viewlet):
-    grok.context(Interface)
-    grok.viewletmanager(IAboveContent)
-    grok.order(120)
+class AddMenuViewlet(Viewlet):
+    context(Interface)
+    viewletmanager(IAboveContent)
+    order(120)
 
     def render(self):
         menu = AddMenu(self.context, self.request, self.view)
@@ -31,10 +32,10 @@ class AddMenuViewlet(grok.Viewlet):
         return menu.render()
 
 
-class PersonalMenuViewlet(grok.Viewlet):
-    grok.context(Interface)
-    grok.viewletmanager(IPageTop)
-    grok.order(100)
+class PersonalMenuViewlet(Viewlet):
+    context(Interface)
+    viewletmanager(IPageTop)
+    order(100)
 
     def render(self):
         menu = PersonalMenu(self.context, self.request, self.view)
@@ -42,10 +43,10 @@ class PersonalMenuViewlet(grok.Viewlet):
         return menu.render()
 
 
-class NavigationMenuViewlet(grok.Viewlet):
-    grok.context(Interface)
-    grok.viewletmanager(IAboveContent)
-    grok.order(100)
+class NavigationMenuViewlet(Viewlet):
+    context(Interface)
+    viewletmanager(IAboveContent)
+    order(100)
 
     def render(self):
         menu = NavigationMenu(self.context, self.request, self.view)
@@ -53,11 +54,20 @@ class NavigationMenuViewlet(grok.Viewlet):
         return menu.render()
 
 
-class GlobalMenuViewlet(grok.Viewlet):
-    grok.baseclass()
-    grok.name('globalmenu')
-    grok.context(Interface)
-    grok.viewletmanager(IPageTop)
-    grok.order(11)
+class GlobalMenuViewlet(Viewlet):
+    baseclass()
+    name('globalmenu')
+    context(Interface)
+    viewletmanager(IPageTop)
+    order(11)
 
     template = None
+
+
+__all__ = [
+    'ObjectActionMenuViewlet',
+    'AddMenuViewlet',
+    'PersonalMenuViewlet',
+    'NavigationMenuViewlet',
+    'GlobalMenuViewlet',
+    ]
