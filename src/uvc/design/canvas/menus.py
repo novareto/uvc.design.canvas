@@ -83,8 +83,7 @@ class GlobalMenu(Menu):
     title(u"GlobalMenu")
     context(Interface)
     implements(IGlobalMenu)
-    
-    template = get_template('globalmenu.cpt')
+
     menu_class = u'nav nav-pills pull-right'
     css = "global_menu"
 
@@ -94,7 +93,7 @@ class AddMenu(Menu):
     context(Interface)
     title(u'Hinzufügen')
     implements(IAddMenu)
-    
+
     menu_class = u'nav nav-pills pull-right'
     css = "addmenu"
 
@@ -161,6 +160,12 @@ class NavigationMenu(Menu):
     implements(INavigationMenu)
     menu_class = u'nav nav-tabs'
     css = "navigation"
+
+
+@adapter(IGlobalMenu, Interface)
+@implementer(ITemplate)
+def global_template(context, request):
+    return get_template('globalmenu.cpt')
 
 
 @adapter(INavigationMenu, Interface)
