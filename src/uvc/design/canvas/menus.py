@@ -9,61 +9,7 @@ from grokcore.component import name, context, title, adapter, implementer
 from zope.interface import Interface, implements
 from zope.security.management import getInteraction
 from cromlech.browser import ITemplate
-
-
-class IGlobalMenu(IMenu):
-    """Marker for GlobalMenu
-    """
-
-
-class INavigationMenu(IMenu):
-    """Marker for NavigationMenu
-    """
-    
-
-class IPersonalPreferences(IMenu):
-    """Marker for PersonalPreferences
-    """
-
-
-class IFooterMenu(IMenu):
-    """Marker for Footer
-    """
-
-
-class IDocumentActions(IMenu):
-    """Marker for DocumentActions
-    """
-
-    
-class IAddMenu(IMenu):
-    """Marker for the Add Menu
-    """
-    
-
-class IExtraViews(IMenu):
-    """Marker for additional Views for Folders
-       Objects etc...
-    """
-
-
-class IPersonalMenu(IMenu):
-    """Marker for PersonalMenu
-    """
-
-
-class IContextualActionsMenu(IMenu):
-    """Marker for PersonalMenu
-    """
-
-
-class IUserMenu(IMenu):
-    """Marker for the UserMenu
-    """
-
-
-class ISubMenu(IMenu):
-    pass
+from uvc.entities.browser.menus import *
 
 
 def get_template(filename):
