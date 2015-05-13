@@ -14,7 +14,7 @@ class MenuViewlet(Viewlet):
 
     def render(self):
         if self.template is not None:
-            return super(Viewlet, self).render()
+            return super(MenuViewlet, self).render()
         elif self.menu is not None:
             menu = self.menu(self.context, self.request, self.view)
             menu.update()

@@ -2,8 +2,7 @@
 
 from os import path
 
-from dolmen.menu import Menu
-from dolmen.menu.interfaces import IMenu
+from ul.browser import Menu
 from dolmen.template import TALTemplate
 from grokcore.component import name, context, title, adapter, implementer
 from zope.interface import Interface, implements
@@ -106,6 +105,15 @@ class NavigationMenu(Menu):
     implements(INavigationMenu)
     menu_class = u'nav nav-tabs'
     css = "navigation"
+
+
+class Quicklinks(Menu):
+    name('quicklinks')
+    title('Quicklinks')
+    context(Interface)
+    implements(INavigationMenu)
+    menu_class = u'nav nav-tabs'
+    css = "quicklinks"
 
 
 @adapter(IGlobalMenu, Interface)
