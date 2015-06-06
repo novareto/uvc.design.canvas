@@ -9,6 +9,7 @@ from .menus import (
     IPersonalMenu,
     IContextualActionsMenu,
     ISubMenu,
+    IQuicklinksMenu
     )
 
 from .managers import (

@@ -9,6 +9,7 @@ from zope.interface import Interface, implements
 from zope.security.management import getInteraction
 from cromlech.browser import ITemplate
 from uvc.entities.browser.menus import *
+from uvc.entities.browser.menus import IQuicklinksMenu
 
 
 def get_template(filename):
@@ -106,12 +107,11 @@ class NavigationMenu(Menu):
     menu_class = u'nav nav-tabs'
     css = "navigation"
 
-
 class Quicklinks(Menu):
     name('quicklinks')
     title('Quicklinks')
     context(Interface)
-    implements(INavigationMenu)
+    implements(IQuicklinksMenu)
     menu_class = u'nav nav-tabs'
     css = "quicklinks"
 
