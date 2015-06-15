@@ -20,6 +20,7 @@ class MenuViewlet(Viewlet):
             'manager': self.manager,
             'viewlet': self,
             'menu': self.menu,
+            'entries': self.menu.entries,
             }
 
     def render(self):
