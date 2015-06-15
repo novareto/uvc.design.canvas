@@ -12,6 +12,16 @@ class MenuViewlet(Viewlet):
     template = None
     menu = None
 
+    def namespace(self):
+        return {
+            'context': self.context,
+            'request': self.request,
+            'view': self.view,
+            'manager': self.manager,
+            'viewlet': self,
+            'menu': self.menu,
+            }
+
     def render(self):
         if self.template is not None:
             return super(MenuViewlet, self).render()

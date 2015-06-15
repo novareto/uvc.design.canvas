@@ -65,7 +65,7 @@ class PersonalPreferences(Menu):
 
 class DocumentActionsMenu(Menu):
     name('documentactions')
-    title('Document Actions')
+    title('Menu')
     context(Interface)
     implements(IDocumentActions)
     
