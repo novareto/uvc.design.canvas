@@ -4,7 +4,7 @@ from os.path import join
 from setuptools import setup, find_packages
 
 name = 'uvc.design.canvas'
-version = '0.3'
+version = '0.4.dev0'
 readme = open('README.txt').read()
 history = open(join('docs', 'HISTORY.txt')).read()
 
